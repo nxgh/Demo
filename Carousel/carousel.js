@@ -43,6 +43,7 @@ class Carousel {
             `
         }
         this.bindEvent()
+        this.play()
     }
     bindEvent() {
         let prev = document.getElementById(`${this.wrapId}_prev`)
@@ -69,10 +70,30 @@ class Carousel {
             this.dotActive();
             this.animate(-this.wrapWidth)
         })
+        let dotspans = document.getElementById(`${this.wrapId}_dot`).getElementsByTagName('span')
+        for (let i = 0; i < dotspans.length; i++) {
+            dotspans[i].onclick = () => {
+                if (dotspans[i].className == "active") return;
+                let dotIndex = parseInt(dotspans[i].getAttribute('index'))
+                let offset = -this.wrapWidth * (dotIndex - this.index)
+                if (!this.animated) this.animate(offset)
+                this.index = dotIndex
+                this.dotActive()   
+            }
+        }
+        this.wrap.addEventListener("mouseenter", () => {
+            this.stop()
+            console.log('mouseenter')
+        });
 
+        this.wrap.addEventListener("mouseleave", () => {
+            this.play()
+            console.log('mouseleave')
+        });
     }
     dotActive() {
         let dotspans = document.getElementById(`${this.wrapId}_dot`).getElementsByTagName('span')
+
         for (let i = 0; i < dotspans.length; i++) {
             dotspans[i].className = ""            
         }
@@ -80,11 +101,11 @@ class Carousel {
     }
     animate(offset){
         // offset 偏移量
-        // 
         let list = document.getElementById(`${this.wrapId}_img_list`)
+        
         // 新的图片位置
         let newLeft = parseInt(list.style.left) + offset;
-
+       
         list.style.left=newLeft+"px"   
         console.log('newLeft out of if ',newLeft)
         if (newLeft == -this.wrapWidth*(this.imgCount+2)) {
@@ -97,6 +118,17 @@ class Carousel {
             // console.log('newLeft in if ',newLeft)
             // console.log('第一一张跳转最后一张')
             list.style.left = -this.imgCount * this.wrapWidth+"px"
-        };
+        }
+    }
+    play () {
+        this.timer = setInterval(() =>
+        {
+            let next = document.getElementById(`${this.wrapId}_next`)
+            next.click()
+            // console.log(`${this.wrapId}_next`)
+        }, 2000);
+    }
+    stop () {
+        clearInterval(this.timer);
     }
 }
