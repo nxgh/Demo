@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./carousel.css">
+  <title>Document</title>
+  <style>
+    #test {
+      width: 600px;
+      height: 400px;
+      float: left;
+      margin-bottom: 1rem;
+    }
+
+    #test2 {
+      width: 900px;
+      height: 600px;
+      float: left;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="test">
+
+  </div>
+
+  <div id="test2">
+
+  </div>
+  <script src="./carousel.js"></script>
+  <script>
+    let imgArray = [
+      "https://dummyimage.com/600x400/000fff/fff&text=1",
+      "https://dummyimage.com/600x400/fff000/fff&text=2",
+      "https://dummyimage.com/600x400/00ff00/fff&text=3",
+      "https://dummyimage.com/600x400/ff00ff/fff&text=4",
+      "https://dummyimage.com/600x400/ff00ff/fff&text=5",
+    ]
+
+
+    let test = new Carousel({
+      imgArr: imgArray,
+      wrap: document.getElementById('test')
+    })
+    let imgArray2 = [
+      "https://dummyimage.com/900x600/000fff/fff&text=1",
+      "https://dummyimage.com/900x600/fff000/fff&text=2",
+      "https://dummyimage.com/900x600/00ff00/fff&text=3",
+      "https://dummyimage.com/900x600/ff00ff/fff&text=4",
+      "https://dummyimage.com/900x600/ff00ff/fff&text=5",
+      "https://dummyimage.com/900x600/ff00ff/fff&text=6",
+      "https://dummyimage.com/900x600/ff00ff/fff&text=7",
+      "https://dummyimage.com/900x600/ff00ff/fff&text=8",
+      "https://dummyimage.com/900x600/ff00ff/fff&text=9",
+      "https://dummyimage.com/900x600/ff00ff/fff&text=10",
+    ]
+
+
+    let test2 = new Carousel({
+      imgArr: imgArray2,
+      wrap: document.getElementById('test2')
+    })
+  </script>
+</body>
+
+</html>
