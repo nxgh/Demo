@@ -1,0 +1,58 @@
+[id$=_img_list] {
+    position: absolute;
+    z-index: 1;
+}
+
+[id$=_dot] {
+    position: absolute; 
+    z-index: 2; 
+    bottom: 20px; 
+    /* left: 220px;  /* (wrap.width - (img.length * 2) )/ 2*/
+    /* width: 160px;  /* img.lenght */
+    height: 10px;
+}
+[id$=_dot] span {
+    float: left; 
+    width: 10px;
+    height: 10px;
+    margin-right: 5px;
+    cursor: pointer; 
+    color:white;
+    border: 1px solid white; 
+    border-radius: 50%;
+}
+[class$=arrow] {
+    position: absolute; 
+    font-size: 36px; 
+    font-weight: bold; 
+    line-height: 80px;
+    z-index: 2; 
+    
+    /*top: 160px;   (img.height - 80) / 2*/
+    /* display: none; */
+    width: 40px; 
+    height: 80px;  
+
+    cursor: pointer; 
+    text-align: center; 
+    color: #fff;
+    background-color: RGBA(0,0,0,.3);
+}
+[class$=arrow]:hover {
+    background-color: RGBA(0,0,0,.7);
+}
+[id$=container]:hover .arrow {
+    display: block;
+}
+[id$=_prev] {
+    left: 20px;
+}
+[id$=_next] {
+    right: 20px;
+}
+[id$=list] img {
+    float: left;
+}
+[class$=active]{
+    background: white;
+}
