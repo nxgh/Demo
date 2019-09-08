@@ -1,6 +1,7 @@
 [id$=_img_list] {
     position: absolute;
     z-index: 1;
+    transition: left 1s ease-in-out; /* 过渡特效 */
 }
 
 [id$=_dot] {
