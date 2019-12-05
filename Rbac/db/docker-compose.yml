@@ -1,0 +1,17 @@
+version: '3.1'
+
+services:
+
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+    # 当以下两个环境变量存在时，MongoDB将以启用身份验证(monogd --auth)开始
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_DATABASE: rbac
+    volumes:
+      - "/home/nxgh/Rbac/back/db/data:/data/db"
+    ports:
+      - "20017:27017"
+    
